@@ -21,12 +21,6 @@ spec:
       selfHeal: true
       prune: true
 
-  sourceRepos:
-    - "*"
-  clusterResourceWhitelist:
-    - group: "*"
-      kind: "*"
-
 ---
 # apiVersion: argoproj.io/v1alpha1
 # kind: Application
