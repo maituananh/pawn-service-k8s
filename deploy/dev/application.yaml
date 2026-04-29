@@ -1,0 +1,46 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: fe-pawn-service-application
+  namespace: dev-pawn-service
+spec:
+  project: pawn-service
+  source:
+    repoURL: https://github.com/maituananh/pawn-service-k8s.git
+    targetRevision: HEAD
+    path: deploy/dev/fe
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev-pawn-service
+
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
+
+---
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: be-pawn-service-application
+#   namespace: dev-pawn-service
+# spec:
+#   project: pawn-service
+#   source:
+#     repoURL: https://github.com/maituananh/pawn-service-k8s.git
+#     targetRevision: HEAD
+#     path: deploy/dev/be
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: dev-pawn-service
+
+#   syncPolicy:
+#     syncOptions:
+#       - CreateNamespace=true
+
+#     automated:
+#       selfHeal: true
+#       prune: true
