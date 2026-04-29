@@ -17,4 +17,4 @@ spec:
         - name: fe-pawn-service-container
           image: anhmai7777/pawn-service-fe:20260404055241
           ports:
-            - containerPort: 5173
+            - containerPort: 80

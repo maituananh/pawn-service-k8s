@@ -8,5 +8,6 @@ spec:
   selector:
     app: pawn-serivce-app-fe
   ports:
-    - port: 80
-      targetPort: 5173
+    - name: http
+      port: 80
+      targetPort: 80

@@ -1,8 +1,25 @@
 apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: pawn-service
+  namespace: argocd
+spec:
+  description: Pawn Service Project
+  sourceRepos:
+    - https://github.com/maituananh/pawn-service-k8s.git
+  destinations:
+    - namespace: dev-pawn-service
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+
+---
+apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: fe-pawn-service-application
-  namespace: dev-pawn-service
+  namespace: argocd
 spec:
   project: pawn-service
   source:
@@ -20,8 +37,6 @@ spec:
     automated:
       selfHeal: true
       prune: true
-
----
 # apiVersion: argoproj.io/v1alpha1
 # kind: Application
 # metadata:
