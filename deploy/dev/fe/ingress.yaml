@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   name: pawn-service-ingress
   namespace: dev-pawn-service
+  annotations:
+    argocd.argoproj.io/health-check: "Healthy"
 spec:
   ingressClassName: nginx
   rules:
