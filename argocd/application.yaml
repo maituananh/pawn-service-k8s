@@ -25,7 +25,7 @@ spec:
   source:
     repoURL: https://github.com/maituananh/pawn-service-k8s.git
     targetRevision: HEAD
-    path: deploy/dev/fe
+    path: ../overlays/dev
   destination:
     server: https://kubernetes.default.svc
     namespace: dev-pawn-service

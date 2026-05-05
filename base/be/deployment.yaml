@@ -2,19 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: be-pawn-service-deployment
-  namespace: dev-pawn-service
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: pawn-serivce-app-be
+      tier: backend
   template:
     metadata:
       labels:
         app: pawn-serivce-app-be
+        tier: backend
     spec:
       containers:
-        - name: pawn-service-container
-          image: anhmai7777/pawn-service-fe:20260404055241
+        - name: be-pawn-service-container
+          image: anhmai7777/pawn-service-be
           ports:
             - containerPort: 80
