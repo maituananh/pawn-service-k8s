@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- configmap.yaml
+- ../../base
+namePrefix: prod-
+namespace: prod-pawn-service
+labels:
+- includeSelectors: true
+  pairs:
+    app: pawn-serivce-app-fe
+    env: prod
+
+patches:
+  - path: patch/deployment.yaml
+  - path: patch/ingress.yaml

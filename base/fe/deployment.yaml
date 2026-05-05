@@ -2,19 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: fe-pawn-service-deployment
-  namespace: dev-pawn-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pawn-serivce-app-fe
+      app: pawn-serivce-app
+      tier: frontend
   template:
     metadata:
       labels:
-        app: pawn-serivce-app-fe
+        app: pawn-serivce-app
+        tier: frontend
     spec:
       containers:
         - name: fe-pawn-service-container
-          image: anhmai7777/pawn-service-fe:20260404055241
+          image: anhmai7777/pawn-service-fe
           ports:
             - containerPort: 80

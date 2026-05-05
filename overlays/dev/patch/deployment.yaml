@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fe-pawn-service-deployment
+spec:
+  template:
+    spec:
+      containers:
+      - name: fe-pawn-service-container
+        image: anhmai7777/pawn-service-fe:20260404055241
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: be-pawn-service-deployment
+spec:
+  template:
+    spec:
+      containers:
+      - name: be-pawn-service-container
+        image: anhmai7777/pawn-service-be:20260404055241

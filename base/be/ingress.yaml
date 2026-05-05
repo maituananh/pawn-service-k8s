@@ -1,18 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: pawn-service-ingress
-  namespace: dev-pawn-service
+  name: be-pawn-service-ingress
 spec:
   ingressClassName: nginx
   rules:
-    - host: "fe-pawn.dev.localhost"
+    - host: "api-pawn.dev.localhost"
       http:
         paths:
           - pathType: Prefix
             path: "/"
             backend:
               service:
-                name: pawn-service-service
+                name: be-pawn-service
                 port:
                   number: 80
